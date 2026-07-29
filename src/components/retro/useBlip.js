@@ -77,6 +77,47 @@ export function useBlip() {
     setTimeout(() => beep(260, 0.05, 'triangle', 0.05), 50);
   }, [beep]);
 
+  // looping background music for stations
+  const musicRef = useRef(null);
+
+  const startMusic = useCallback(() => {
+    if (muted) return;
+    try {
+      const ctx = getCtx();
+      if (!ctx) return;
+      if (ctx.state === 'suspended') ctx.resume();
+      if (musicRef.current) {
+        musicRef.current.o.stop();
+      }
+      const o = ctx.createOscillator();
+      const g = ctx.createGain();
+      o.type = 'sawtooth';
+      o.frequency.value = 58;
+      g.gain.value = 0.028;
+      o.connect(g);
+      g.connect(ctx.destination);
+      o.start();
+      musicRef.current = { o, g };
+    } catch (e) {
+      /* no-op */
+    }
+  }, [muted]);
+
+  const stopMusic = useCallback(() => {
+    try {
+      if (musicRef.current) {
+        musicRef.current.g.gain.exponentialRampToValueAtTime(
+          0.0001,
+          musicRef.current.o.context.currentTime + 0.2
+        );
+        musicRef.current.o.stop(musicRef.current.o.context.currentTime + 0.22);
+        musicRef.current = null;
+      }
+    } catch (e) {
+      /* no-op */
+    }
+  }, []);
+
   const toggleMute = useCallback(() => {
     setMuted((m) => {
       const n = !m;
@@ -92,6 +133,8 @@ export function useBlip() {
     playTreadmill,
     playLift,
     playPunch,
+    startMusic,
+    stopMusic,
     muted,
     toggleMute,
   };
