@@ -1,14 +1,15 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import StationFrame from '../StationFrame';
 import StartIndicator from '../StartIndicator';
-import { useHoldToRun } from '../useHoldToRun';
+import { useClickStation } from '../useClickStation';
 import { ART } from '../assets';
 
 export default function PunchingStation({ burn, stats, sound, onBack }) {
-  const { started, running, pressHandlers } = useHoldToRun(() => {
+  const { active, count, clickHandlers } = useClickStation(() => {
     burn(2);
     sound.playPunch();
-  }, 300);
+  }, 550);
 
   return (
     <StationFrame
@@ -22,23 +23,21 @@ export default function PunchingStation({ burn, stats, sound, onBack }) {
       <div
         className="absolute inset-0 z-10"
         style={{ touchAction: 'none', cursor: 'pointer' }}
-        {...pressHandlers}
+        {...clickHandlers}
       >
-        {/* swinging bag overlay */}
-        <div
-          className={`absolute left-1/2 top-[14%] w-[12%] h-[36%] bag-swing ${
-            running ? 'animate-bag' : ''
-          }`}
+        {/* the bag — swings with each punch */}
+        <motion.div
+          key={count}
+          initial={{ rotate: -6 }}
+          animate={{ rotate: [-6, 16, -10, 0] }}
+          transition={{ duration: 0.45, ease: 'easeInOut' }}
+          className="absolute left-1/2 top-[14%] w-[12%] h-[36%] bag-swing"
         >
           <div className="w-full h-full bg-gradient-to-b from-[#6B6BC6] to-[#2A2A80] border-4 border-black rounded-t-full" />
           <div className="w-1/3 h-2 bg-[#2A2A80] mx-auto -mt-1 border-x-2 border-black" />
-        </div>
-        {/* punch glow */}
-        {running && (
-          <div className="absolute left-1/2 top-[40%] -translate-x-1/2 w-2/5 h-1/4 bg-[hsl(var(--retro-pink))]/20 blur-2xl rounded-full animate-pulse" />
-        )}
-        {!running && (
-          <StartIndicator text={started ? 'HOLD TO PUNCH' : 'CLICK TO START'} />
+        </motion.div>
+        {!active && (
+          <StartIndicator text={count > 0 ? 'KEEP PUNCHING' : 'CLICK TO START'} />
         )}
       </div>
     </StationFrame>

@@ -1,14 +1,15 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import StationFrame from '../StationFrame';
 import StartIndicator from '../StartIndicator';
-import { useHoldToRun } from '../useHoldToRun';
+import { useClickStation } from '../useClickStation';
 import { ART } from '../assets';
 
 export default function BarbellStation({ burn, stats, sound, onBack }) {
-  const { started, running, pressHandlers } = useHoldToRun(() => {
+  const { active, count, clickHandlers } = useClickStation(() => {
     burn(1.5);
     sound.playLift();
-  }, 220);
+  }, 550);
 
   return (
     <StationFrame
@@ -22,26 +23,22 @@ export default function BarbellStation({ burn, stats, sound, onBack }) {
       <div
         className="absolute inset-0 z-10"
         style={{ touchAction: 'none', cursor: 'pointer' }}
-        {...pressHandlers}
+        {...clickHandlers}
       >
-        {/* lifting barbell overlay — bobs up and down */}
-        <div
-          className={`absolute left-1/2 -translate-x-1/2 bottom-[32%] w-[30%] h-[5%] ${
-            running ? 'animate-barbell' : ''
-          }`}
+        {/* the barbell — lifts up with each click */}
+        <motion.div
+          key={count}
+          initial={{ y: 0 }}
+          animate={{ y: [0, -70, 0] }}
+          transition={{ duration: 0.45, ease: 'easeOut' }}
+          className="absolute left-1/2 -translate-x-1/2 bottom-[30%] w-[26%] h-[4%] flex items-stretch"
         >
-          <div className="w-full h-full flex items-stretch">
-            <div className="w-4 bg-[#4d4dff] border-2 border-black" />
-            <div className="flex-1 bg-[#2a2a9a] border-y-2 border-black" />
-            <div className="w-4 bg-[#4d4dff] border-2 border-black" />
-          </div>
-        </div>
-        {/* lift glow */}
-        {running && (
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/3 bg-[hsl(var(--retro-purple))]/15 blur-2xl rounded-full animate-pulse" />
-        )}
-        {!running && (
-          <StartIndicator text={started ? 'HOLD TO LIFT' : 'CLICK TO START'} />
+          <div className="w-4 bg-[#4d4dff] border-2 border-black" />
+          <div className="flex-1 bg-[#2a2a9a] border-y-2 border-black" />
+          <div className="w-4 bg-[#4d4dff] border-2 border-black" />
+        </motion.div>
+        {!active && (
+          <StartIndicator text={count > 0 ? 'KEEP LIFTING' : 'CLICK TO START'} />
         )}
       </div>
     </StationFrame>
