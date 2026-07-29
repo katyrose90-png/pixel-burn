@@ -1,8 +1,8 @@
 export const ART = {
   title:
-    'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/c1dd3f381_1b_ClickFitTitleArt.png',
+    'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/89bcdad03_1_ClickFitTitleArtextended.png',
   gym:
-    'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/2516a668f_2_GymWide.png',
+    'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/419cbd5bc_2_GymWideextended.png',
   treadmill:
     'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/8ac315e0d_extendedtreadmill.png',
   barbell:

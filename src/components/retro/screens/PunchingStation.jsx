@@ -24,7 +24,7 @@ export default function PunchingStation({ burn, stats, sound, onBack, music }) {
       stats={stats}
       muted={sound.muted}
       onToggleMute={sound.toggleMute}
-      bgClassName="brightness-100"
+      bgClassName="brightness-100 bg-obj-top"
       overlayOpacity="bg-black/0"
     >
       <MusicButton
@@ -47,7 +47,7 @@ export default function PunchingStation({ burn, stats, sound, onBack, music }) {
           initial={{ rotate: -6 }}
           animate={{ rotate: [-6, 18, -12, 0] }}
           transition={{ duration: 0.5, ease: 'easeInOut' }}
-          className="absolute left-1/2 top-[-6%] h-[104%] pixel-img z-20 bag-swing"
+          className="absolute left-1/2 top-0 h-[100%] pixel-img z-20 bag-swing"
           style={{ imageRendering: 'pixelated', transformOrigin: 'top center', translate: '-50% 0' }}
         />
         {!active && (

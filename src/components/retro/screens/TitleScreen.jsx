@@ -22,9 +22,9 @@ export default function TitleScreen({ onStart }) {
         >
           <Image
             src={ART.title}
-            fittingType="fill"
+            fittingType="fit"
             alt="ClickFit"
-            className="block w-full h-full object-cover pixel-img brightness-125 scale-105"
+            className="block w-full h-full pixel-img brightness-125"
           />
           <div className="absolute inset-0 bg-black/15" />
         </motion.div>
