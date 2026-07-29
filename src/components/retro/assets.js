@@ -18,3 +18,22 @@ export const ART = {
   punchingBag:
     'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/535cbe507_Boxing_PunchingBag.png',
 };
+
+export const MUSIC_TRACKS = [
+  {
+    url: 'https://media.base44.com/files/public/6a6a18e0c70211de47d6ca9c/e13ef35a3_AscheSpencer-RetroClassics212.mp3',
+    name: 'RETRO CLASSICS 212',
+  },
+  {
+    url: 'https://media.base44.com/files/public/6a6a18e0c70211de47d6ca9c/d20bf9b5a_AscheSpencer-RetroClassics292.mp3',
+    name: 'RETRO CLASSICS 292',
+  },
+  {
+    url: 'https://media.base44.com/files/public/6a6a18e0c70211de47d6ca9c/880f44519_AscheSpencer-Orchestral563.mp3',
+    name: 'ORCHESTRAL 563',
+  },
+  {
+    url: 'https://media.base44.com/files/public/6a6a18e0c70211de47d6ca9c/7472a9bca_AscheSpencer-HipHopRB283.mp3',
+    name: 'HIP HOP RB 283',
+  },
+];

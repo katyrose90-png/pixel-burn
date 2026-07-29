@@ -5,7 +5,7 @@ import ComboMeter from '../ComboMeter';
 import MusicButton from '../MusicButton';
 import FloatingText from '../FloatingText';
 import { useClickStation } from '../useClickStation';
-import { ART } from '../assets';
+import { ART, MUSIC_TRACKS } from '../assets';
 
 let popId = 0;
 
@@ -13,9 +13,38 @@ export default function TreadmillStation({ burn, stats, sound, onBack }) {
   const [combo, setCombo] = useState(0);
   const [pops, setPops] = useState([]);
   const [musicOn, setMusicOn] = useState(false);
+  const [trackIndex, setTrackIndex] = useState(0);
   const comboTimer = useRef(null);
+  const audioRef = useRef(null);
 
   const beltDuration = Math.max(0.045, 0.16 - combo * 0.009);
+
+  const playTrack = useCallback(
+    (index) => {
+      if (sound.muted) return;
+      try {
+        if (!audioRef.current) {
+          audioRef.current = new Audio();
+          audioRef.current.loop = true;
+        }
+        audioRef.current.src = MUSIC_TRACKS[index].url;
+        audioRef.current.play();
+      } catch (e) {
+        /* no-op */
+      }
+    },
+    [sound.muted]
+  );
+
+  const stopTrack = useCallback(() => {
+    try {
+      if (audioRef.current) {
+        audioRef.current.pause();
+      }
+    } catch (e) {
+      /* no-op */
+    }
+  }, []);
 
   const handleClick = useCallback(() => {
     burn(0.5);
@@ -39,20 +68,39 @@ export default function TreadmillStation({ burn, stats, sound, onBack }) {
 
   const toggleMusic = useCallback(() => {
     if (musicOn) {
-      sound.stopMusic();
+      stopTrack();
       setMusicOn(false);
     } else {
-      sound.startMusic();
+      playTrack(trackIndex);
       setMusicOn(true);
     }
-  }, [musicOn, sound]);
+  }, [musicOn, playTrack, stopTrack, trackIndex]);
+
+  const nextTrack = useCallback(() => {
+    const next = (trackIndex + 1) % MUSIC_TRACKS.length;
+    setTrackIndex(next);
+    if (musicOn) {
+      stopTrack();
+      playTrack(next);
+    }
+  }, [trackIndex, musicOn, stopTrack, playTrack]);
+
+  // pause/resume music when mute toggles
+  useEffect(() => {
+    if (!audioRef.current) return;
+    if (sound.muted) {
+      audioRef.current.pause();
+    } else if (musicOn) {
+      audioRef.current.play().catch(() => {});
+    }
+  }, [sound.muted, musicOn]);
 
   useEffect(() => {
     return () => {
-      sound.stopMusic();
+      stopTrack();
       clearTimeout(comboTimer.current);
     };
-  }, [sound]);
+  }, [stopTrack]);
 
   return (
     <StationFrame
@@ -65,7 +113,12 @@ export default function TreadmillStation({ burn, stats, sound, onBack }) {
       bgClassName="brightness-100"
       overlayOpacity="bg-black/0"
     >
-      <MusicButton on={musicOn} onClick={toggleMusic} />
+      <MusicButton
+        on={musicOn}
+        trackName={MUSIC_TRACKS[trackIndex].name}
+        onClick={toggleMusic}
+        onNext={nextTrack}
+      />
       <ComboMeter combo={combo} />
 
       <div
