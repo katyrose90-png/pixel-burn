@@ -92,8 +92,13 @@ export function useBlip() {
       const o = ctx.createOscillator();
       const g = ctx.createGain();
       o.type = 'sawtooth';
-      o.frequency.value = 58;
-      g.gain.value = 0.028;
+      o.frequency.value = 120;
+      // pulse the frequency so it sounds like a looping bass beat
+      const t0 = ctx.currentTime;
+      o.frequency.setValueAtTime(110, t0);
+      o.frequency.linearRampToValueAtTime(165, t0 + 0.4);
+      o.frequency.linearRampToValueAtTime(110, t0 + 0.8);
+      g.gain.value = 0.05;
       o.connect(g);
       g.connect(ctx.destination);
       o.start();

@@ -9,7 +9,7 @@ export default function MusicButton({ on, onClick }) {
         onClick();
       }}
       onPointerDown={(e) => e.stopPropagation()}
-      className="absolute top-20 left-3 z-30 flex items-center gap-2 px-3 py-2 border-2 border-[hsl(var(--retro-cyan))] bg-[hsl(var(--retro-panel))]/85 hover:bg-[hsl(var(--retro-cyan))]/20 transition-colors"
+      className="absolute bottom-4 left-3 z-30 flex items-center gap-2 px-3 py-2 border-2 border-[hsl(var(--retro-cyan))] bg-[hsl(var(--retro-panel))]/85 hover:bg-[hsl(var(--retro-cyan))]/20 transition-colors"
       style={{ boxShadow: '3px 3px 0 0 rgba(0,0,0,0.6)' }}
     >
       {on ? (

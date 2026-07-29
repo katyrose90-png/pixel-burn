@@ -5,7 +5,7 @@ const SEGMENTS = 8;
 export default function ComboMeter({ combo }) {
   const filled = Math.min(combo, SEGMENTS);
   return (
-    <div className="absolute top-20 right-3 z-30 flex flex-col items-end gap-1 pointer-events-none select-none">
+    <div className="absolute bottom-16 left-3 z-30 flex flex-col items-start gap-1 pointer-events-none select-none">
       <span className="font-display text-[7px] sm:text-[8px] text-[hsl(var(--retro-cyan))] neon">
         SPEED
       </span>
