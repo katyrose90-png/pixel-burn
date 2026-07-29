@@ -47,7 +47,7 @@ export default function PunchingStation({ burn, stats, sound, onBack, music }) {
           initial={{ rotate: -6 }}
           animate={{ rotate: [-6, 18, -12, 0] }}
           transition={{ duration: 0.5, ease: 'easeInOut' }}
-          className="absolute left-1/2 top-[-3%] h-[96%] pixel-img z-20 bag-swing"
+          className="absolute left-1/2 top-0 h-[100%] pixel-img z-20 bag-swing"
           style={{ imageRendering: 'pixelated', transformOrigin: 'top center', translate: '-50% 0' }}
         />
         {!active && (
