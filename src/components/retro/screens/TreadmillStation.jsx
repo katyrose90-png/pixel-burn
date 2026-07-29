@@ -18,7 +18,7 @@ export default function TreadmillStation({ burn, stats, sound, onBack }) {
       stats={stats}
       muted={sound.muted}
       onToggleMute={sound.toggleMute}
-      bgClassName="brightness-110 saturate-150"
+      bgClassName="brightness-100"
     >
       <div
         className="absolute inset-0 z-10"

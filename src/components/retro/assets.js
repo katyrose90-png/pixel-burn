@@ -4,7 +4,7 @@ export const ART = {
   gym:
     'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/2516a668f_2_GymWide.png',
   treadmill:
-    'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/894045f42_extendedtreadmill.png',
+    'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/8ac315e0d_extendedtreadmill.png',
   barbell:
     'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/9f1514bae_4_Barbell.png',
   barbellAnim:
