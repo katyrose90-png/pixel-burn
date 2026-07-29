@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { useBlip } from './useBlip';
+import { useMusicPlayer } from './useMusicPlayer';
 import TitleScreen from './screens/TitleScreen';
 import GymWide from './screens/GymWide';
 import TreadmillStation from './screens/TreadmillStation';
@@ -40,6 +41,7 @@ export default function ClickFitGame() {
   const [shaking, setShaking] = useState(false);
 
   const sound = useBlip();
+  const music = useMusicPlayer(sound);
   const achUnlocked = useRef(new Set(init.current.ach || []));
   const prevLevel = useRef(levelFromCal(init.current.calories || 0));
 
@@ -111,6 +113,7 @@ export default function ClickFitGame() {
           stats={stats}
           muted={sound.muted}
           onToggleMute={sound.toggleMute}
+          music={music}
         />
       )}
 
@@ -119,6 +122,7 @@ export default function ClickFitGame() {
           burn={burn}
           stats={stats}
           sound={sound}
+          music={music}
           onBack={() => setScreen('gym')}
         />
       )}
@@ -127,6 +131,7 @@ export default function ClickFitGame() {
           burn={burn}
           stats={stats}
           sound={sound}
+          music={music}
           onBack={() => setScreen('gym')}
         />
       )}
@@ -135,6 +140,7 @@ export default function ClickFitGame() {
           burn={burn}
           stats={stats}
           sound={sound}
+          music={music}
           onBack={() => setScreen('gym')}
         />
       )}

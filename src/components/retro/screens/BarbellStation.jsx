@@ -8,18 +8,8 @@ import FloatingText from '../FloatingText';
 import { useStationExtras } from '../useStationExtras';
 import { ART, MUSIC_TRACKS } from '../assets';
 
-export default function BarbellStation({ burn, stats, sound, onBack }) {
-  const {
-    active,
-    count,
-    clickHandlers,
-    combo,
-    pops,
-    musicOn,
-    trackIndex,
-    toggleMusic,
-    nextTrack,
-  } = useStationExtras({
+export default function BarbellStation({ burn, stats, sound, onBack, music }) {
+  const { active, count, clickHandlers, combo, pops } = useStationExtras({
     burn,
     burnAmount: 1.5,
     sound,
@@ -38,10 +28,10 @@ export default function BarbellStation({ burn, stats, sound, onBack }) {
       overlayOpacity="bg-black/0"
     >
       <MusicButton
-        on={musicOn}
-        trackName={MUSIC_TRACKS[trackIndex].name}
-        onClick={toggleMusic}
-        onNext={nextTrack}
+        on={music.musicOn}
+        trackName={MUSIC_TRACKS[music.trackIndex].name}
+        onClick={music.toggleMusic}
+        onNext={music.nextTrack}
       />
       <ComboMeter combo={combo} />
 

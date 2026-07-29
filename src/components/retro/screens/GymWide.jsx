@@ -2,6 +2,8 @@ import React from 'react';
 import { Image } from '@/components/ui/image';
 import { ART } from '../assets';
 import GameHud from '../GameHud';
+import MusicButton from '../MusicButton';
+import { MUSIC_TRACKS } from '../assets';
 
 const STATIONS = [
   {
@@ -21,7 +23,7 @@ const STATIONS = [
   },
 ];
 
-export default function GymWide({ onNavigate, stats, muted, onToggleMute }) {
+export default function GymWide({ onNavigate, stats, muted, onToggleMute, music }) {
   return (
     <div className="relative min-h-screen w-full overflow-hidden crt-stage">
       <div className="absolute inset-0 z-0">
@@ -52,6 +54,13 @@ export default function GymWide({ onNavigate, stats, muted, onToggleMute }) {
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 font-display text-[9px] sm:text-[11px] text-[hsl(var(--retro-cyan))] neon z-20">
         ▶ SELECT YOUR STATION ◀
       </div>
+
+      <MusicButton
+        on={music.musicOn}
+        trackName={MUSIC_TRACKS[music.trackIndex].name}
+        onClick={music.toggleMusic}
+        onNext={music.nextTrack}
+      />
 
       {STATIONS.map((s) => (
         <button

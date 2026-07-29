@@ -61,8 +61,8 @@ export function useBlip() {
 
   // treadmill rolling sound
   const playTreadmill = useCallback(() => {
-    beep(150, 0.05, 'sawtooth', 0.07);
-    beep(165, 0.04, 'sawtooth', 0.05);
+    beep(150, 0.05, 'sawtooth', 0.1);
+    beep(165, 0.04, 'sawtooth', 0.07);
   }, [beep]);
 
   // barbell lift clack
