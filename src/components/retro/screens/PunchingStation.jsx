@@ -13,7 +13,7 @@ export default function PunchingStation({ burn, stats, sound, onBack }) {
 
   return (
     <StationFrame
-      bgUrl={ART.punching}
+      bgUrl={ART.boxingBg}
       label="PUNCHING BAG STATION"
       onBack={onBack}
       stats={stats}
@@ -26,16 +26,16 @@ export default function PunchingStation({ burn, stats, sound, onBack }) {
         {...clickHandlers}
       >
         {/* the bag — swings with each punch */}
-        <motion.div
+        <motion.img
           key={count}
+          src={ART.punchingBag}
+          alt="Punching Bag"
           initial={{ rotate: -6 }}
-          animate={{ rotate: [-6, 16, -10, 0] }}
-          transition={{ duration: 0.45, ease: 'easeInOut' }}
-          className="absolute left-1/2 top-[14%] w-[12%] h-[36%] bag-swing"
-        >
-          <div className="w-full h-full bg-gradient-to-b from-[#6B6BC6] to-[#2A2A80] border-4 border-black rounded-t-full" />
-          <div className="w-1/3 h-2 bg-[#2A2A80] mx-auto -mt-1 border-x-2 border-black" />
-        </motion.div>
+          animate={{ rotate: [-6, 18, -12, 0] }}
+          transition={{ duration: 0.5, ease: 'easeInOut' }}
+          className="absolute left-1/2 top-[4%] h-[60%] pixel-img z-20 bag-swing"
+          style={{ imageRendering: 'pixelated', transformOrigin: 'top center', translate: '-50% 0' }}
+        />
         {!active && (
           <StartIndicator text={count > 0 ? 'KEEP PUNCHING' : 'CLICK TO START'} />
         )}

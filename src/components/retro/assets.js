@@ -13,4 +13,8 @@ export const ART = {
     'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/eedce1e66_Weightlifting_Barbell.png',
   punching:
     'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/f78407512_5_PunchingBag.png',
+  boxingBg:
+    'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/632a331ea_Boxing_Background.png',
+  punchingBag:
+    'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/535cbe507_Boxing_PunchingBag.png',
 };
