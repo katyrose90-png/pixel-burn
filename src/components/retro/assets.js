@@ -7,6 +7,8 @@ export const ART = {
     'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/814c193c5_extendedtreadmill.png',
   barbell:
     'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/9f1514bae_4_Barbell.png',
+  barbellAnim:
+    'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/3868130a8_barbellanimation.gif',
   punching:
     'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/f78407512_5_PunchingBag.png',
 };
