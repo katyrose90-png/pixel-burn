@@ -33,7 +33,7 @@ export default function TitleScreen({ onStart }) {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.7, duration: 0.5 }}
           onClick={onStart}
-          className="absolute bottom-[4%] left-1/2 -translate-x-1/2 font-display text-lg sm:text-3xl text-white neon animate-pulse bg-transparent border-0"
+          className="absolute bottom-[5%] left-1/2 -translate-x-1/2 font-display text-sm sm:text-xl text-white neon animate-pulse bg-transparent border-0"
         >
           ▶ CLICK TO START ◀
         </motion.button>

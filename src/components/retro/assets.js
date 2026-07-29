@@ -1,6 +1,6 @@
 export const ART = {
   title:
-    'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/8e005be24_1b_ClickFitTitleArt.png',
+    'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/be428cb6a_1b_ClickFitTitleArt.png',
   gym:
     'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/43ec9de24_2_GymWide.png',
   treadmill:
