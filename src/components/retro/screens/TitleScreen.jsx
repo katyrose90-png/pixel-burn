@@ -21,7 +21,7 @@ export default function TitleScreen({ onStart }) {
             src={ART.title}
             fittingType="fill"
             alt="ClickFit"
-            className="block w-full h-full object-cover object-top pixel-img brightness-125"
+            className="block w-full h-full object-cover object-bottom pixel-img brightness-125"
           />
           <div className="absolute inset-0 bg-black/15" />
         </motion.div>
