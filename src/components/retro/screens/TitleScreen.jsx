@@ -13,7 +13,7 @@ export default function TitleScreen({ onStart }) {
         className="absolute inset-0 z-0"
       >
         <motion.div
-          animate={{ y: [20, 10, 20] }}
+          animate={{ y: [0, -10, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
           className="absolute inset-0"
         >
