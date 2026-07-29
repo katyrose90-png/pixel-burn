@@ -30,6 +30,7 @@ export default function GymWide({ onNavigate, stats, muted, onToggleMute, music 
         <Image
           src={ART.gym}
           fittingType="fill"
+          quality={70}
           alt="Gym wide"
           className="block w-full h-full object-cover pixel-img brightness-125"
         />

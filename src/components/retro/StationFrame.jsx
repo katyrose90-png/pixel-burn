@@ -19,6 +19,7 @@ export default function StationFrame({
         <Image
           src={bgUrl}
           fittingType="fill"
+          quality={70}
           alt={label}
           className={`block w-full h-full object-cover pixel-img ${bgClassName}`}
         />

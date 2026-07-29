@@ -23,6 +23,7 @@ export default function TitleScreen({ onStart }) {
           <Image
             src={ART.title}
             fittingType="fill"
+            quality={70}
             alt="ClickFit"
             className="block w-full h-full object-cover pixel-img brightness-125"
           />
