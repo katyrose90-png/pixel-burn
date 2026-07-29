@@ -18,7 +18,7 @@ export default function StationFrame({
           src={bgUrl}
           fittingType="fill"
           alt={label}
-          className="block w-full h-full object-cover pixel-img"
+          className="block w-full h-full object-cover pixel-img brightness-110"
         />
         <div className="absolute inset-0 bg-black/35" />
       </div>

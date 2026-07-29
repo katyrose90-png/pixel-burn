@@ -29,7 +29,7 @@ export default function GymWide({ onNavigate, stats, muted, onToggleMute }) {
           src={ART.gym}
           fittingType="fill"
           alt="Gym wide"
-          className="block w-full h-full object-cover pixel-img"
+          className="block w-full h-full object-cover pixel-img brightness-110"
         />
         <div className="absolute inset-0 bg-black/30" />
       </div>
