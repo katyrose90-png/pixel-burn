@@ -1,7 +1,28 @@
 import React from 'react';
 import { Music, VolumeX, ChevronRight } from 'lucide-react';
 
-export default function MusicButton({ on, trackName, onClick, onNext }) {
+export default function MusicButton({ on, trackName, onClick, onNext, compact = false }) {
+  if (compact) {
+    return (
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          onClick();
+        }}
+        onPointerDown={(e) => e.stopPropagation()}
+        className="absolute bottom-4 left-3 z-30 flex items-center justify-center w-9 h-9 border-2 border-[hsl(var(--retro-cyan))] bg-[hsl(var(--retro-panel))]/90 hover:bg-[hsl(var(--retro-cyan))]/20 transition-colors"
+        style={{ boxShadow: '3px 3px 0 0 rgba(0,0,0,0.6)' }}
+        title={on ? 'Pause music' : 'Play music'}
+      >
+        {on ? (
+          <Music className="w-4 h-4 text-[hsl(var(--retro-cyan))]" />
+        ) : (
+          <VolumeX className="w-4 h-4 text-[hsl(var(--muted-foreground))]" />
+        )}
+      </button>
+    );
+  }
+
   return (
     <div
       className="absolute bottom-4 left-3 z-30 flex items-stretch border-2 border-[hsl(var(--retro-cyan))] bg-[hsl(var(--retro-panel))]/90"

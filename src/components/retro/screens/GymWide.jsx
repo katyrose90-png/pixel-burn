@@ -60,6 +60,7 @@ export default function GymWide({ onNavigate, stats, muted, onToggleMute, music 
         trackName={MUSIC_TRACKS[music.trackIndex].name}
         onClick={music.toggleMusic}
         onNext={music.nextTrack}
+        compact
       />
 
       {STATIONS.map((s) => (
