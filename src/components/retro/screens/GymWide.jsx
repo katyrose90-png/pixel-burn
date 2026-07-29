@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Image } from '@/components/ui/image';
 import { ART } from '../assets';
 import GameHud from '../GameHud';
 import MusicButton from '../MusicButton';
+import RetroLoader from '../RetroLoader';
 import { MUSIC_TRACKS } from '../assets';
 
 const STATIONS = [
@@ -24,8 +25,10 @@ const STATIONS = [
 ];
 
 export default function GymWide({ onNavigate, stats, muted, onToggleMute, music }) {
+  const [bgLoaded, setBgLoaded] = useState(false);
   return (
     <div className="relative min-h-screen w-full overflow-hidden crt-stage">
+      {!bgLoaded && <RetroLoader label="ENTERING GYM" />}
       <div className="absolute inset-0 z-0">
         <Image
           src={ART.gym}
@@ -33,6 +36,7 @@ export default function GymWide({ onNavigate, stats, muted, onToggleMute, music 
           quality={70}
           loading="eager"
           fetchpriority="high"
+          onLoad={() => setBgLoaded(true)}
           alt="Gym wide"
           className="block w-full h-full object-cover pixel-img brightness-125"
         />

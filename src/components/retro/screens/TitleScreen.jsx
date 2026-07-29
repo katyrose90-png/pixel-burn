@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Image } from '@/components/ui/image';
 import { ART } from '../assets';
+import RetroLoader from '../RetroLoader';
 
 export default function TitleScreen({ onStart }) {
+  const [bgLoaded, setBgLoaded] = useState(false);
   return (
     <div
       className="relative min-h-screen w-full overflow-hidden crt-stage cursor-pointer"
@@ -15,6 +17,7 @@ export default function TitleScreen({ onStart }) {
         transition={{ duration: 1, ease: 'easeOut' }}
         className="absolute inset-0 z-0"
       >
+        {!bgLoaded && <RetroLoader label="LOADING" />}
         <motion.div
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
@@ -26,6 +29,7 @@ export default function TitleScreen({ onStart }) {
             quality={70}
             loading="eager"
             fetchpriority="high"
+            onLoad={() => setBgLoaded(true)}
             alt="ClickFit"
             className="block w-full h-full object-cover pixel-img brightness-125"
           />

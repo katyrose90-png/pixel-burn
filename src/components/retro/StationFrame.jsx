@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Image } from '@/components/ui/image';
 import GameHud from './GameHud';
+import RetroLoader from './RetroLoader';
 
 export default function StationFrame({
   bgUrl,
@@ -13,8 +14,10 @@ export default function StationFrame({
   bgClassName = 'brightness-110',
   overlayOpacity = 'bg-black/35',
 }) {
+  const [bgLoaded, setBgLoaded] = useState(false);
   return (
     <div className="relative min-h-screen w-full overflow-hidden crt-stage">
+      {!bgLoaded && <RetroLoader label="LOADING STATION" />}
       <div className="absolute inset-0 z-0">
         <Image
           src={bgUrl}
@@ -23,6 +26,7 @@ export default function StationFrame({
           loading="eager"
           fetchpriority="high"
           alt={label}
+          onLoad={() => setBgLoaded(true)}
           className={`block w-full h-full object-cover pixel-img ${bgClassName}`}
         />
         <div className={`absolute inset-0 ${overlayOpacity}`} />
