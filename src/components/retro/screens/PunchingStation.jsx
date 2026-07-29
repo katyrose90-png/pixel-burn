@@ -2,14 +2,29 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import StationFrame from '../StationFrame';
 import StartIndicator from '../StartIndicator';
-import { useClickStation } from '../useClickStation';
-import { ART } from '../assets';
+import ComboMeter from '../ComboMeter';
+import MusicButton from '../MusicButton';
+import FloatingText from '../FloatingText';
+import { useStationExtras } from '../useStationExtras';
+import { ART, MUSIC_TRACKS } from '../assets';
 
 export default function PunchingStation({ burn, stats, sound, onBack }) {
-  const { active, count, clickHandlers } = useClickStation(() => {
-    burn(2);
-    sound.playPunch();
-  }, 550);
+  const {
+    active,
+    count,
+    clickHandlers,
+    combo,
+    pops,
+    musicOn,
+    trackIndex,
+    toggleMusic,
+    nextTrack,
+  } = useStationExtras({
+    burn,
+    burnAmount: 2,
+    sound,
+    soundFn: sound.playPunch,
+  });
 
   return (
     <StationFrame
@@ -19,13 +34,22 @@ export default function PunchingStation({ burn, stats, sound, onBack }) {
       stats={stats}
       muted={sound.muted}
       onToggleMute={sound.toggleMute}
+      bgClassName="brightness-100"
+      overlayOpacity="bg-black/0"
     >
+      <MusicButton
+        on={musicOn}
+        trackName={MUSIC_TRACKS[trackIndex].name}
+        onClick={toggleMusic}
+        onNext={nextTrack}
+      />
+      <ComboMeter combo={combo} />
+
       <div
         className="absolute inset-0 z-10"
         style={{ touchAction: 'none', cursor: 'pointer' }}
         {...clickHandlers}
       >
-        {/* the bag — swings with each punch */}
         <motion.img
           key={count}
           src={ART.punchingBag}
@@ -40,6 +64,8 @@ export default function PunchingStation({ burn, stats, sound, onBack }) {
           <StartIndicator text={count > 0 ? 'KEEP PUNCHING' : 'CLICK TO START'} />
         )}
       </div>
+
+      <FloatingText items={pops} />
     </StationFrame>
   );
 }
