@@ -43,10 +43,10 @@ export default function GymWide({ onNavigate, stats, muted, onToggleMute }) {
       />
 
       <div
-        className="absolute top-16 left-0 right-0 mx-auto w-max max-w-[90%] text-center font-display text-[12px] sm:text-[15px] text-[hsl(var(--retro-cyan))] z-20 px-2 leading-relaxed"
-        style={{ textShadow: '2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 0 0 4px hsl(var(--retro-cyan))' }}
+        className="absolute top-16 left-0 right-0 mx-auto w-max max-w-[90%] text-center font-display text-[12px] sm:text-[15px] text-white z-20 px-2 leading-relaxed"
+        style={{ textShadow: '3px 3px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000' }}
       >
-        SOME SCIENTISTS SAY ONE CLICK BURNS 1.4 GRAM CALORIES<br />LET'S GET CLICKING!
+        SOME SCIENTISTS SAY ONE CLICK BURNS 1.4 g CALORIES<br />LET'S GET CLICKING!
       </div>
 
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 font-display text-[9px] sm:text-[11px] text-[hsl(var(--retro-cyan))] neon z-20">
