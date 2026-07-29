@@ -31,7 +31,7 @@ export default function GymWide({ onNavigate, stats, muted, onToggleMute }) {
           alt="Gym wide"
           className="block w-full h-full object-cover pixel-img brightness-125"
         />
-        <div className="absolute inset-0 bg-black/10" />
+        <div className="absolute inset-0 bg-black/15" />
       </div>
 
       <GameHud
@@ -42,7 +42,7 @@ export default function GymWide({ onNavigate, stats, muted, onToggleMute }) {
         onToggleMute={onToggleMute}
       />
 
-      <div className="absolute top-16 left-0 right-0 mx-auto w-max max-w-[90%] text-center font-display text-[9px] sm:text-[11px] text-white neon z-20 px-2 leading-relaxed">
+      <div className="absolute top-16 left-0 right-0 mx-auto w-max max-w-[90%] text-center font-display text-[10px] sm:text-[13px] text-[hsl(var(--retro-cyan))] neon z-20 px-2 leading-relaxed">
         SOME SCIENTISTS SAY ONE CLICK BURNS 1.4 GRAM CALORIES<br />LET'S GET CLICKING!
       </div>
 
