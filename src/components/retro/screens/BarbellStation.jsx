@@ -33,7 +33,7 @@ export default function BarbellStation({ burn, stats, sound, onBack }) {
           initial={{ y: 0 }}
           animate={{ y: [0, -120, 0] }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="absolute left-0 bottom-[28%] w-[460%] pixel-img z-20"
+          className="absolute left-0 bottom-[20%] w-[460%] pixel-img z-20"
           style={{ imageRendering: 'pixelated', transformOrigin: 'left bottom' }}
         />
         {!active && (
