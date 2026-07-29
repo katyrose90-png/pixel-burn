@@ -26,7 +26,7 @@ export default function TreadmillStation({ burn, stats, sound, onBack }) {
       >
         {/* the treadmill belt — its surface scrolls downward while you click */}
         <div
-          className={`absolute left-[10%] right-[10%] bottom-0 h-[42%] tread-belt ${
+          className={`absolute left-[14%] right-[14%] bottom-0 h-[34%] tread-belt ${
             active ? 'animate-tread' : ''
           }`}
           style={{
