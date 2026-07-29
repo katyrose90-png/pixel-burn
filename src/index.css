@@ -34,7 +34,7 @@
     --font-display: 'Press Start 2P', ui-sans-serif, system-ui, sans-serif;
     --font-mono: 'VT323', ui-monospace, monospace;
     /* retro accents */
-    --retro-green: 130 60% 50%;
+    --retro-green: 0 0% 100%;
     --retro-cyan: 180 70% 55%;
     --retro-pink: 330 80% 60%;
     --retro-yellow: 48 90% 55%;
