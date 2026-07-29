@@ -138,3 +138,28 @@
   80% { transform: translate(3px, 2px); }
 }
 .screen-shake { animation: screen-shake 0.45s ease-in-out; }
+
+/* ===== Station motion overlays ===== */
+.belt-strip {
+  background: repeating-linear-gradient(90deg, #1a1a4a 0 16px, #4d4dff 16px 32px);
+  box-shadow: 0 0 8px #4d4dff;
+  image-rendering: pixelated;
+}
+@keyframes belt-scroll {
+  from { background-position: 0 0; }
+  to { background-position: -32px 0; }
+}
+.animate-belt { animation: belt-scroll 0.22s linear infinite; }
+
+@keyframes barbell-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-24px); }
+}
+.animate-barbell { animation: barbell-bob 0.45s ease-in-out infinite; }
+
+.bag-swing { transform-origin: top center; }
+@keyframes bag-swing {
+  0%, 100% { transform: rotate(-12deg); }
+  50% { transform: rotate(12deg); }
+}
+.animate-bag { animation: bag-swing 0.4s ease-in-out infinite; }

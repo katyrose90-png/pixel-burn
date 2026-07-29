@@ -59,6 +59,24 @@ export function useBlip() {
     );
   }, [beep]);
 
+  // treadmill rolling sound
+  const playTreadmill = useCallback(() => {
+    beep(150, 0.05, 'sawtooth', 0.04);
+    beep(165, 0.04, 'sawtooth', 0.03);
+  }, [beep]);
+
+  // barbell lift clack
+  const playLift = useCallback(() => {
+    beep(260, 0.05, 'square', 0.06);
+    setTimeout(() => beep(200, 0.04, 'square', 0.05), 40);
+  }, [beep]);
+
+  // punching bag swing
+  const playPunch = useCallback(() => {
+    beep(330, 0.06, 'triangle', 0.07);
+    setTimeout(() => beep(260, 0.05, 'triangle', 0.05), 50);
+  }, [beep]);
+
   const toggleMute = useCallback(() => {
     setMuted((m) => {
       const n = !m;
@@ -67,5 +85,14 @@ export function useBlip() {
     });
   }, []);
 
-  return { playClick, playLevelUp, playAchievement, muted, toggleMute };
+  return {
+    playClick,
+    playLevelUp,
+    playAchievement,
+    playTreadmill,
+    playLift,
+    playPunch,
+    muted,
+    toggleMute,
+  };
 }
