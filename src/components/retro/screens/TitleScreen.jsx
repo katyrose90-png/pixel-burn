@@ -21,7 +21,7 @@ export default function TitleScreen({ onStart }) {
             src={ART.title}
             fittingType="fill"
             alt="ClickFit"
-            className="block w-full h-full object-cover object-bottom pixel-img brightness-125"
+            className="block w-full h-full object-cover pixel-img brightness-125"
           />
           <div className="absolute inset-0 bg-black/15" />
         </motion.div>
@@ -33,7 +33,7 @@ export default function TitleScreen({ onStart }) {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.7, duration: 0.5 }}
           onClick={onStart}
-          className="absolute bottom-[9%] left-1/2 -translate-x-1/2 font-display text-xs sm:text-base text-[hsl(var(--retro-yellow))] neon-yellow animate-pulse bg-transparent border-0"
+          className="absolute bottom-[4%] left-1/2 -translate-x-1/2 font-display text-lg sm:text-3xl text-white neon animate-pulse bg-transparent border-0"
         >
           ▶ CLICK TO START ◀
         </motion.button>
