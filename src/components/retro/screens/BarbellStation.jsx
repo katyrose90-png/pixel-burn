@@ -32,7 +32,7 @@ export default function BarbellStation({ burn, stats, sound, onBack }) {
           initial={{ y: 0 }}
           animate={{ y: [0, -90, 0] }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="absolute left-1/2 -translate-x-1/2 bottom-[42%] w-[120%] h-[28%]"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[92%] h-[24%]"
         >
           <Image
             src={ART.barbellBar}
