@@ -24,10 +24,10 @@ export default function TreadmillStation({ burn, stats, sound, onBack }) {
         style={{ touchAction: 'none', cursor: 'pointer' }}
         {...clickHandlers}
       >
-        {/* the treadmill belt — scrolls while you click */}
+        {/* the treadmill belt — its surface scrolls downward while you click */}
         <div
-          className={`absolute left-[24%] right-[24%] bottom-[25%] h-[3.5%] belt-strip ${
-            active ? 'animate-belt' : ''
+          className={`absolute left-[34%] right-[34%] bottom-[18%] h-[26%] tread-belt ${
+            active ? 'animate-tread' : ''
           }`}
         />
         {!active && (

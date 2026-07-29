@@ -163,3 +163,18 @@
   50% { transform: rotate(12deg); }
 }
 .animate-bag { animation: bag-swing 0.4s ease-in-out infinite; }
+
+.tread-belt {
+  background-color: #1b1e5a;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(140,82,255,0.28) 0 2px, transparent 2px 7px),
+    repeating-linear-gradient(90deg, rgba(255,153,200,0.14) 0 3px, transparent 3px 10px),
+    radial-gradient(rgba(101,68,255,0.20) 18%, transparent 60%);
+  box-shadow: inset 0 0 14px rgba(0,0,0,0.7);
+  image-rendering: pixelated;
+}
+@keyframes tread-scroll {
+  from { background-position-y: 0; }
+  to { background-position-y: 28px; }
+}
+.animate-tread { animation: tread-scroll 0.16s linear infinite; }
