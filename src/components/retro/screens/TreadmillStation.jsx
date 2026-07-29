@@ -26,11 +26,11 @@ export default function TreadmillStation({ burn, stats, sound, onBack }) {
       >
         {/* the treadmill belt — its surface scrolls downward while you click */}
         <div
-          className={`absolute left-[26%] right-[26%] bottom-[1%] h-[46%] tread-belt ${
+          className={`absolute left-0 right-0 bottom-0 h-[52%] tread-belt ${
             active ? 'animate-tread' : ''
           }`}
           style={{
-            clipPath: 'polygon(18% 0, 82% 0, 4% 100%, 96% 100%)',
+            clipPath: 'polygon(37.5% 0, 62.5% 0, 72.5% 100%, 27.5% 100%)',
           }}
         />
         {!active && (
