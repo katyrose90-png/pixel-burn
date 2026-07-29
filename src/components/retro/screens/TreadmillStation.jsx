@@ -30,7 +30,7 @@ export default function TreadmillStation({ burn, stats, sound, onBack }) {
             active ? 'animate-tread' : ''
           }`}
           style={{
-            clipPath: 'polygon(37.5% 0, 62.5% 0, 72.5% 100%, 27.5% 100%)',
+            clipPath: 'polygon(37.5% 0, 60% 0, 68% 100%, 27.5% 100%)',
           }}
         />
         {!active && (
