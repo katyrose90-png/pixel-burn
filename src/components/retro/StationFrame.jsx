@@ -10,6 +10,7 @@ export default function StationFrame({
   muted,
   onToggleMute,
   children,
+  bgClassName = 'brightness-110',
 }) {
   return (
     <div className="relative min-h-screen w-full overflow-hidden crt-stage">
@@ -18,7 +19,7 @@ export default function StationFrame({
           src={bgUrl}
           fittingType="fill"
           alt={label}
-          className="block w-full h-full object-cover pixel-img brightness-110"
+          className={`block w-full h-full object-cover pixel-img ${bgClassName}`}
         />
         <div className="absolute inset-0 bg-black/35" />
       </div>
