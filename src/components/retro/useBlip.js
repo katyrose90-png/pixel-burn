@@ -42,39 +42,39 @@ export function useBlip() {
 
   const playClick = useCallback(
     (combo = 0) => {
-      beep(440 + Math.min(combo, 30) * 18, 0.06, 'square', 0.05);
+      beep(440 + Math.min(combo, 30) * 18, 0.06, 'square', 0.09);
     },
     [beep]
   );
 
   const playLevelUp = useCallback(() => {
     [523, 659, 784, 1046].forEach((f, i) =>
-      setTimeout(() => beep(f, 0.13, 'square', 0.07), i * 95)
+      setTimeout(() => beep(f, 0.13, 'square', 0.12), i * 95)
     );
   }, [beep]);
 
   const playAchievement = useCallback(() => {
     [659, 784, 988].forEach((f, i) =>
-      setTimeout(() => beep(f, 0.11, 'triangle', 0.07), i * 85)
+      setTimeout(() => beep(f, 0.11, 'triangle', 0.12), i * 85)
     );
   }, [beep]);
 
   // treadmill rolling sound
   const playTreadmill = useCallback(() => {
-    beep(150, 0.05, 'sawtooth', 0.04);
-    beep(165, 0.04, 'sawtooth', 0.03);
+    beep(150, 0.05, 'sawtooth', 0.07);
+    beep(165, 0.04, 'sawtooth', 0.05);
   }, [beep]);
 
   // barbell lift clack
   const playLift = useCallback(() => {
-    beep(260, 0.05, 'square', 0.06);
-    setTimeout(() => beep(200, 0.04, 'square', 0.05), 40);
+    beep(260, 0.05, 'square', 0.1);
+    setTimeout(() => beep(200, 0.04, 'square', 0.08), 40);
   }, [beep]);
 
   // punching bag swing
   const playPunch = useCallback(() => {
-    beep(330, 0.06, 'triangle', 0.07);
-    setTimeout(() => beep(260, 0.05, 'triangle', 0.05), 50);
+    beep(330, 0.06, 'triangle', 0.11);
+    setTimeout(() => beep(260, 0.05, 'triangle', 0.08), 50);
   }, [beep]);
 
   const toggleMute = useCallback(() => {

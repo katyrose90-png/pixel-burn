@@ -23,7 +23,9 @@ export function useStationExtras({ burn, burnAmount, sound, soundFn }) {
         if (!audioRef.current) {
           audioRef.current = new Audio();
           audioRef.current.loop = true;
+          audioRef.current.volume = 0.4;
         }
+        audioRef.current.volume = 0.4;
         audioRef.current.src = MUSIC_TRACKS[index].url;
         audioRef.current.play();
       } catch (e) {
