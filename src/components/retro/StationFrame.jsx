@@ -11,6 +11,7 @@ export default function StationFrame({
   onToggleMute,
   children,
   bgClassName = 'brightness-110',
+  overlayOpacity = 'bg-black/35',
 }) {
   return (
     <div className="relative min-h-screen w-full overflow-hidden crt-stage">
@@ -21,7 +22,7 @@ export default function StationFrame({
           alt={label}
           className={`block w-full h-full object-cover pixel-img ${bgClassName}`}
         />
-        <div className="absolute inset-0 bg-black/35" />
+        <div className={`absolute inset-0 ${overlayOpacity}`} />
       </div>
 
       <GameHud

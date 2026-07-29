@@ -19,6 +19,7 @@ export default function TreadmillStation({ burn, stats, sound, onBack }) {
       muted={sound.muted}
       onToggleMute={sound.toggleMute}
       bgClassName="brightness-100"
+      overlayOpacity="bg-black/0"
     >
       <div
         className="absolute inset-0 z-10"
