@@ -10,7 +10,7 @@ export default function TitleScreen({ onStart }) {
         initial={{ scale: 1.12, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1, ease: 'easeOut' }}
-        className="absolute inset-0 -z-10"
+        className="absolute inset-0 z-0"
       >
         <Image
           src={ART.title}

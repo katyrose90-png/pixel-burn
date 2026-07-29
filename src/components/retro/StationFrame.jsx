@@ -13,7 +13,7 @@ export default function StationFrame({
 }) {
   return (
     <div className="relative min-h-screen w-full overflow-hidden crt-stage">
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 z-0">
         <Image
           src={bgUrl}
           fittingType="fill"
