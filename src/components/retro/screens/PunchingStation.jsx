@@ -48,7 +48,7 @@ export default function PunchingStation({ burn, stats, sound, onBack, music }) {
           animate={{ rotate: [-6, 18, -12, 0] }}
           transition={{ duration: 0.5, ease: 'easeInOut' }}
           className="absolute left-1/2 top-0 h-[100%] pixel-img z-20 bag-swing"
-          style={{ imageRendering: 'pixelated', transformOrigin: 'top center', translate: '-50% 0' }}
+          style={{ imageRendering: 'pixelated', transformOrigin: 'top center', translate: '-50% 0', objectFit: 'contain', objectPosition: 'top center' }}
         />
         {!active && (
           <StartIndicator text={count > 0 ? 'KEEP PUNCHING' : 'CLICK TO START'} />

@@ -125,6 +125,7 @@
 }
 
 .bg-obj-top img { object-position: top; }
+.bg-obj-top .pixel-img { object-fit: cover; object-position: top; }
 
 @keyframes idle-bob {
   0%, 100% { transform: translateY(0); }
