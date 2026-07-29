@@ -8,7 +8,9 @@ export const ART = {
   barbell:
     'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/9f1514bae_4_Barbell.png',
   barbellAnim:
-    'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/3868130a8_barbellanimation.gif',
+    'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/df673ced5_Weightlifting_Background.png',
+  barbellBar:
+    'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/eedce1e66_Weightlifting_Barbell.png',
   punching:
     'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/f78407512_5_PunchingBag.png',
 };

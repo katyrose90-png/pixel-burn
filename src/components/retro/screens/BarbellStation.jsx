@@ -1,4 +1,6 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { Image } from '@/components/ui/image';
 import StationFrame from '../StationFrame';
 import StartIndicator from '../StartIndicator';
 import { useClickStation } from '../useClickStation';
@@ -24,6 +26,21 @@ export default function BarbellStation({ burn, stats, sound, onBack }) {
         style={{ touchAction: 'none', cursor: 'pointer' }}
         {...clickHandlers}
       >
+        {/* the barbell — lifts up with each click */}
+        <motion.div
+          key={count}
+          initial={{ y: 0 }}
+          animate={{ y: [0, -90, 0] }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="absolute left-1/2 -translate-x-1/2 bottom-[28%] w-[78%] h-[18%]"
+        >
+          <Image
+            src={ART.barbellBar}
+            fittingType="fit"
+            alt="Barbell"
+            className="w-full h-full pixel-img"
+          />
+        </motion.div>
         {!active && (
           <StartIndicator text={count > 0 ? 'KEEP LIFTING' : 'CLICK TO START'} />
         )}
