@@ -12,13 +12,19 @@ export default function TitleScreen({ onStart }) {
         transition={{ duration: 1, ease: 'easeOut' }}
         className="absolute inset-0 z-0"
       >
-        <Image
-          src={ART.title}
-          fittingType="fill"
-          alt="ClickFit"
-          className="block w-full h-full object-cover pixel-img brightness-110"
-        />
-        <div className="absolute inset-0 bg-black/25" />
+        <motion.div
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={ART.title}
+            fittingType="fill"
+            alt="ClickFit"
+            className="block w-full h-full object-cover object-top pixel-img brightness-125"
+          />
+          <div className="absolute inset-0 bg-black/15" />
+        </motion.div>
       </motion.div>
 
       <div className="relative min-h-screen flex items-center justify-center">
@@ -27,7 +33,7 @@ export default function TitleScreen({ onStart }) {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.7, duration: 0.5 }}
           onClick={onStart}
-          className="absolute bottom-[11%] left-1/2 -translate-x-1/2 pixel-btn text-xs sm:text-base animate-pulse"
+          className="absolute bottom-[9%] left-1/2 -translate-x-1/2 font-display text-xs sm:text-base text-[hsl(var(--retro-yellow))] neon-yellow animate-pulse bg-transparent border-0"
         >
           ▶ CLICK TO START ◀
         </motion.button>
