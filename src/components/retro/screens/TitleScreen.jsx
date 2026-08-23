@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Image } from '@/components/ui/image';
-import { ART } from '../assets';
+import { ART, optimizedBg } from '../assets';
 import RetroLoader from '../RetroLoader';
 
 export default function TitleScreen({ onStart }) {
@@ -23,14 +22,12 @@ export default function TitleScreen({ onStart }) {
           transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
           className="absolute inset-0"
         >
-          <Image
-            src={ART.title}
-            fittingType="fill"
-            quality={50}
+          <img
+            src={optimizedBg(ART.title)}
+            alt="ClickFit"
             loading="eager"
             fetchpriority="high"
             onLoad={() => setBgLoaded(true)}
-            alt="ClickFit"
             className="block w-full h-full object-cover pixel-img brightness-125"
           />
           <div className="absolute inset-0 bg-black/15" />

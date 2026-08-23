@@ -6,7 +6,7 @@ import ComboMeter from '../ComboMeter';
 import MusicButton from '../MusicButton';
 import FloatingText from '../FloatingText';
 import { useStationExtras } from '../useStationExtras';
-import { ART, MUSIC_TRACKS } from '../assets';
+import { ART, MUSIC_TRACKS, optimizedSprite } from '../assets';
 
 export default function PunchingStation({ burn, stats, sound, onBack, music }) {
   const { active, count, clickHandlers, combo, pops } = useStationExtras({
@@ -42,7 +42,7 @@ export default function PunchingStation({ burn, stats, sound, onBack, music }) {
       >
         <motion.img
           key={count}
-          src={ART.punchingBag}
+          src={optimizedSprite(ART.punchingBag)}
           alt="Punching Bag"
           initial={{ rotate: -6 }}
           animate={{ rotate: [-6, 18, -12, 0] }}

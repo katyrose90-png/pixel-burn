@@ -1,3 +1,18 @@
+// Builds a single fixed-size WebP transform URL for full-screen backgrounds.
+// Pixel art tolerates low resolution (image-rendering: pixelated), so we cap
+// width and quality to keep downloads tiny — far smaller than the responsive
+// srcset the Image component generates (which requests 2x/3x DPR variants).
+export function optimizedBg(url, w = 1024, h = 768, q = 35) {
+  const name = url.split('/').pop().replace(/\.[a-z0-9]+$/i, '');
+  return `${url}/v1/fill/w_${w},h_${h},al_c,q_${q},usm_0.66_1.00_0.01,enc_webp,quality_auto/${name}.webp`;
+}
+
+// Same as optimizedBg but uses `fit` (no cropping) for transparent sprites.
+export function optimizedSprite(url, w = 1024, h = 1024, q = 40) {
+  const name = url.split('/').pop().replace(/\.[a-z0-9]+$/i, '');
+  return `${url}/v1/fit/w_${w},h_${h},q_${q},usm_0.66_1.00_0.01,enc_webp,quality_auto/${name}.webp`;
+}
+
 export const ART = {
   title:
     'https://media.base44.com/images/public/6a6a18e0c70211de47d6ca9c/89bcdad03_1_ClickFitTitleArtextended.png',

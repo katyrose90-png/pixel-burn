@@ -6,7 +6,7 @@ import ComboMeter from '../ComboMeter';
 import MusicButton from '../MusicButton';
 import FloatingText from '../FloatingText';
 import { useStationExtras } from '../useStationExtras';
-import { ART, MUSIC_TRACKS } from '../assets';
+import { ART, MUSIC_TRACKS, optimizedSprite } from '../assets';
 
 export default function BarbellStation({ burn, stats, sound, onBack, music }) {
   const { active, count, clickHandlers, combo, pops } = useStationExtras({
@@ -42,7 +42,7 @@ export default function BarbellStation({ burn, stats, sound, onBack, music }) {
       >
         <motion.img
           key={count}
-          src={ART.barbellBar}
+          src={optimizedSprite(ART.barbellBar)}
           alt="Barbell"
           initial={{ y: 0 }}
           animate={{ y: [0, -120, 0] }}

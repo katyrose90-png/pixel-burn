@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { Image } from '@/components/ui/image';
-import { ART } from '../assets';
+import { ART, MUSIC_TRACKS, optimizedBg } from '../assets';
 import GameHud from '../GameHud';
 import MusicButton from '../MusicButton';
 import RetroLoader from '../RetroLoader';
-import { MUSIC_TRACKS } from '../assets';
 
 const STATIONS = [
   {
@@ -30,14 +28,12 @@ export default function GymWide({ onNavigate, stats, muted, onToggleMute, music 
     <div className="relative min-h-screen w-full overflow-hidden crt-stage">
       {!bgLoaded && <RetroLoader label="ENTERING GYM" />}
       <div className="absolute inset-0 z-0">
-        <Image
-          src={ART.gym}
-          fittingType="fill"
-          quality={50}
+        <img
+          src={optimizedBg(ART.gym)}
+          alt="Gym wide"
           loading="eager"
           fetchpriority="high"
           onLoad={() => setBgLoaded(true)}
-          alt="Gym wide"
           className="block w-full h-full object-cover pixel-img brightness-125"
         />
         <div className="absolute inset-0 bg-black/15" />

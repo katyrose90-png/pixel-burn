@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Image } from '@/components/ui/image';
 import GameHud from './GameHud';
 import RetroLoader from './RetroLoader';
+import { optimizedBg } from './assets';
 
 export default function StationFrame({
   bgUrl,
@@ -18,16 +18,14 @@ export default function StationFrame({
   return (
     <div className="relative min-h-screen w-full overflow-hidden crt-stage">
       {!bgLoaded && <RetroLoader label="LOADING STATION" />}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src={bgUrl}
-          fittingType="fill"
-          quality={50}
+      <div className={`absolute inset-0 z-0 ${bgClassName}`}>
+        <img
+          src={optimizedBg(bgUrl)}
+          alt={label}
           loading="eager"
           fetchpriority="high"
-          alt={label}
           onLoad={() => setBgLoaded(true)}
-          className={`block w-full h-full object-cover pixel-img ${bgClassName}`}
+          className="block w-full h-full object-cover pixel-img"
         />
         <div className={`absolute inset-0 ${overlayOpacity}`} />
       </div>
