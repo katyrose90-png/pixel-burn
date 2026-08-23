@@ -33,7 +33,7 @@ export default function GymWide({ onNavigate, stats, muted, onToggleMute, music 
         <Image
           src={ART.gym}
           fittingType="fill"
-          quality={70}
+          quality={50}
           loading="eager"
           fetchpriority="high"
           onLoad={() => setBgLoaded(true)}

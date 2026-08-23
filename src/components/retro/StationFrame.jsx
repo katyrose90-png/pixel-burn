@@ -22,7 +22,7 @@ export default function StationFrame({
         <Image
           src={bgUrl}
           fittingType="fill"
-          quality={70}
+          quality={50}
           loading="eager"
           fetchpriority="high"
           alt={label}

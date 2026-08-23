@@ -26,7 +26,7 @@ export default function TitleScreen({ onStart }) {
           <Image
             src={ART.title}
             fittingType="fill"
-            quality={70}
+            quality={50}
             loading="eager"
             fetchpriority="high"
             onLoad={() => setBgLoaded(true)}
